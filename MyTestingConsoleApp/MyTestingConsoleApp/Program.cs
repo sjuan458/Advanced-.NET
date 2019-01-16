@@ -1,26 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-
-delegate void myDelegate();
+using System.Linq.Expressions;
 
 namespace MyTestingConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+
+        public class Visitor : ExpressionVisitor
         {
-            IEnumerable<int> result = GetAllNumbersLessThanFive(
-                new[] { 2, 7, 3, 9, 5, 7, 1, 8 });
-            foreach (int n in result)
-                Console.WriteLine(n);
-            Console.ReadKey();
+            public Visitor()
+            {
+
+            }
         }
 
-        static IEnumerable<int> GetAllNumbersLessThanFive(IEnumerable<int> numbers)
+        public class nodeObject
         {
-            foreach (int number in numbers)
-                if (number < 5)
-                    yield return number;
+            public Expression node;
+
+
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter something");
+            string inp = Console.ReadLine();
+
+            Console.WriteLine(inp);
+            Console.Write("Enter any key to continue...");
+
+            Console.ReadKey();
         }
     }
 }
